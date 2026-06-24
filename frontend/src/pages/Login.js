@@ -5,14 +5,14 @@ import { useNavigate, Navigate } from 'react-router-dom';
 function Login() {
   const navigate = useNavigate();
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const token = localStorage.getItem('token');
 
   if (token) {
     return <Navigate to="/dashboard" replace />;
   }
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -34,6 +34,7 @@ function Login() {
       alert(err.response?.data?.msg || 'Login Failed');
     }
   };
+
 
   return (
     <div

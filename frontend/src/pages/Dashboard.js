@@ -13,10 +13,6 @@ function Dashboard() {
   const user = JSON.parse(localStorage.getItem('user') || 'null');
   const token = localStorage.getItem('token');
 
-  if (!token) {
-    return <Navigate to="/" replace />;
-  }
-
   const fetchRecords = async () => {
     try {
       const res = await axios.get(`${API_URL}/api/records`, {
@@ -32,8 +28,14 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    fetchRecords();
+    if (token) {
+      fetchRecords();
+    }
   }, []);
+
+  if (!token) {
+    return <Navigate to="/" replace />;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -166,13 +168,8 @@ function Dashboard() {
             <th>Title</th>
             <th>Description</th>
 
-            {user?.role === 'admin' && (
-              <th>Created By</th>
-            )}
-
-            {user?.role === 'admin' && (
-              <th>Created At</th>
-            )}
+            {user?.role === 'admin' && <th>Created By</th>}
+            {user?.role === 'admin' && <th>Created At</th>}
 
             <th>Actions</th>
           </tr>
@@ -193,9 +190,7 @@ function Dashboard() {
 
               {user?.role === 'admin' && (
                 <td>
-                  {new Date(
-                    record.createdAt
-                  ).toLocaleString()}
+                  {new Date(record.createdAt).toLocaleString()}
                 </td>
               )}
 
@@ -213,9 +208,7 @@ function Dashboard() {
                 )}
 
                 <button
-                  onClick={() =>
-                    handleDelete(record._id)
-                  }
+                  onClick={() => handleDelete(record._id)}
                   style={{
                     background: 'red',
                     color: 'white'
