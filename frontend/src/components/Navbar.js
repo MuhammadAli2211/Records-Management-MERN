@@ -22,7 +22,19 @@ function Navbar() {
         color: '#fff'
       }}
     >
-      <h2>Auth System</h2>
+      <h2 style={{
+  fontFamily: "system-ui, -apple-system, sans-serif",
+  fontSize: "2rem",
+  fontWeight: "700",
+  color: "#1e293b",
+  letterSpacing: "-0.025em",
+  borderBottom: "4px solid #6366f1",
+  paddingBottom: "8px",
+  marginBottom: "24px",
+  display: "inline-block"
+}}>
+  Detail Management System
+</h2>
 
       <div>
         {token ? (
