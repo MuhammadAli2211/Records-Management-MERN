@@ -27,11 +27,9 @@ function Dashboard() {
     }
   };
 
-  useEffect(() => {
-    if (token) {
-      fetchRecords();
-    }
-  }, []);
+ useEffect(() => {
+  fetchRecords();
+}, []);
 
   if (!token) {
     return <Navigate to="/" replace />;
