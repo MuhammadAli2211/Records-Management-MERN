@@ -22,20 +22,18 @@ function Navbar() {
         color: '#fff'
       }}
     >
-      <h2 style={{
+<h2 style={{
   fontFamily: "system-ui, -apple-system, sans-serif",
-  fontSize: "2rem",
-  fontWeight: "700",
-  color: "#1e293b",
-  letterSpacing: "-0.025em",
-  borderBottom: "4px solid #6366f1",
-  paddingBottom: "8px",
-  marginBottom: "24px",
-  display: "inline-block"
+  fontSize: "2.25rem",
+  fontWeight: "800",
+  letterSpacing: "-0.03em",
+  background: "linear-gradient(90deg, #2563eb, #7c3aed)",
+  WebkitBackgroundClip: "text",
+  WebkitTextFillColor: "transparent",
+  marginBottom: "28px"
 }}>
   Detail Management System
 </h2>
-
       <div>
         {token ? (
           <>
