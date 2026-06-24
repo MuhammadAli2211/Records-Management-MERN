@@ -4,6 +4,13 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 
+router.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "Backend API Running Successfully"
+  });
+});
+
 router.post("/register", async (req, res) => {
   const { name, email, password, role } = req.body;
 
